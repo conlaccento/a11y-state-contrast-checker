@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>State Contrast Checker — test fixture</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #ffffff;
+        color: #111;
+        padding: 40px;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      h2 {
+        margin-top: 32px;
+      }
+      button,
+      a.btn {
+        display: inline-block;
+        font-size: 15px;
+        padding: 10px 16px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        background: #f3f3f3;
+        color: #1a1a1a;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      /* GOOD hover: stays high-contrast (dark text on light bg). */
+      .good:hover {
+        background: #e6e6e6;
+        color: #000;
+      }
+
+      /* BAD hover: light grey text on light bg — passes at rest, fails on hover. */
+      .bad-hover:hover {
+        background: #ffffff;
+        color: #bfbfbf; /* ~1.6:1 on white -> FAIL 1.4.3 */
+      }
+
+      /* BAD focus text: near-invisible text only when focused. */
+      .bad-focus:focus {
+        background: #2b6cb0;
+        color: #4d7fb8; /* low contrast on its own blue bg -> FAIL */
+      }
+
+      /* BAD focus ring: very faint outline against white surroundings. */
+      .bad-ring:focus-visible {
+        outline: 2px solid #f0f0f0; /* ~1.07:1 vs white -> FAIL 1.4.11 */
+        outline-offset: 2px;
+      }
+
+      /* GOOD focus ring: strong outline. */
+      .good-ring:focus-visible {
+        outline: 3px solid #0b5cad; /* passes 3:1 */
+        outline-offset: 2px;
+      }
+
+      /* Icon-only button whose icon becomes faint on hover. Uses the common
+         `fill: currentColor` pattern so the button itself is the selector
+         subject that changes on :hover. */
+      .icon-btn {
+        background: #ffffff;
+        border: 1px solid #ddd;
+        padding: 8px;
+        color: #333; /* icon colour at rest — fine */
+      }
+      .icon-btn svg {
+        fill: currentColor;
+      }
+      .icon-btn:hover {
+        color: #ededed; /* ~1.1:1 on white -> FAIL 1.4.11 */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>State Contrast test fixture</h1>
+    <p>Each control below is fine at rest but some fail only on hover/focus.</p>
+
+    <h2>Hover</h2>
+    <p>
+      <button class="good">Good hover</button>
+      <button class="bad-hover">Bad hover (fails on :hover)</button>
+    </p>
+
+    <h2>Focus (text)</h2>
+    <p><button class="bad-focus">Bad focus text</button></p>
+
+    <h2>Focus ring (1.4.11)</h2>
+    <p>
+      <button class="good-ring">Good ring</button>
+      <button class="bad-ring">Faint ring (fails on :focus-visible)</button>
+    </p>
+
+    <h2>Icon-only</h2>
+    <p>
+      <button class="icon-btn" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"
+          />
+        </svg>
+      </button>
+    </p>
+  </body>
+</html>

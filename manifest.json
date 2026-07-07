@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "A11y State Contrast Checker",
+  "version": "0.1.0",
+  "description": "On-demand WCAG contrast audit of interactive states (:hover, :focus, :focus-visible) using the Chrome DevTools Protocol.",
+  "permissions": ["debugger", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "A11y State Contrast Checker",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

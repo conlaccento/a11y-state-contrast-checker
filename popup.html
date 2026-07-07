@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>A11y State Contrast Checker</title>
+  </head>
+  <body>
+    <header>
+      <h1>A11y State Contrast Checker</h1>
+      <p class="subtitle">
+        WCAG contrast audit of <code>:hover</code>, <code>:focus</code> and
+        <code>:focus-visible</code> states.
+      </p>
+    </header>
+
+    <div class="controls">
+      <button id="run" type="button">Run audit</button>
+      <span id="status" class="status"></span>
+    </div>
+
+    <!-- Milestone-only announcements (start / complete / error). Kept separate
+         from the per-element counter so screen readers are not flooded. -->
+    <div id="live" class="sr-only" role="status" aria-live="polite"></div>
+
+    <div id="progress-wrap" class="progress-wrap" hidden>
+      <div
+        id="progress-bar"
+        class="progress-bar"
+        role="progressbar"
+        aria-label="Audit progress"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      >
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+    </div>
+
+    <p class="note">
+      ⚠️ While the audit runs, Chrome shows a yellow bar saying this extension
+      “started debugging this browser”. That is expected — the audit uses the
+      DevTools protocol to force real interactive states. It disappears when the
+      scan finishes.
+    </p>
+
+    <div id="error" class="error" hidden></div>
+
+    <div id="summary" class="summary" hidden></div>
+
+    <table id="results" class="results" hidden>
+      <caption class="sr-only">
+        Contrast audit results. Activate a row's element button to highlight it
+        on the page.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Element</th>
+          <th scope="col">State</th>
+          <th scope="col">Check</th>
+          <th scope="col">Ratio</th>
+          <th scope="col">Required</th>
+          <th scope="col">Result</th>
+        </tr>
+      </thead>
+      <tbody id="results-body"></tbody>
+    </table>
+
+    <p id="empty" class="empty" hidden>
+      No interactive elements with <code>:hover</code>/<code>:focus</code> style
+      rules were found on this page.
+    </p>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
