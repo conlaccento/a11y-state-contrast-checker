@@ -1,0 +1,23 @@
+{
+  "name": "a11y-state-contrast-checker",
+  "version": "0.1.0",
+  "description": "Chrome MV3 extension: on-demand WCAG contrast audit of interactive states (:hover, :focus, :focus-visible) via the DevTools Protocol.",
+  "private": true,
+  "scripts": {
+    "test": "node test/audit-e2e.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conlaccento/a11y-state-contrast-checker.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "accessibility",
+    "a11y",
+    "wcag",
+    "contrast",
+    "devtools-protocol"
+  ],
+  "author": "Antonio Trifirò",
+  "license": "MIT"
+}
