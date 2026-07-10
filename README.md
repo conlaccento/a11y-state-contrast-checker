@@ -108,6 +108,16 @@ node test/audit-e2e.mjs
 It launches headless Chrome, runs the full audit flow against the fixture, and
 asserts the four deliberate failures are caught.
 
+### Building the store package
+
+```bash
+npm run package   # or: bash scripts/package.sh
+```
+
+Produces `dist/a11y-state-contrast-checker-v<version>.zip` containing only the
+runtime files (manifest, scripts, popup, icons) — ready to upload to the Chrome
+Web Store.
+
 ## Accessibility of the extension UI
 
 The popup is built to meet WCAG 2.1 AA itself: all colours verified ≥ 4.5:1

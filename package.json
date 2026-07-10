@@ -4,7 +4,8 @@
   "description": "Chrome MV3 extension: on-demand WCAG contrast audit of interactive states (:hover, :focus, :focus-visible) via the DevTools Protocol.",
   "private": true,
   "scripts": {
-    "test": "node test/audit-e2e.mjs"
+    "test": "node test/audit-e2e.mjs",
+    "package": "bash scripts/package.sh"
   },
   "repository": {
     "type": "git",
