@@ -136,6 +136,11 @@ live announcements; pass/fail is conveyed by text, not colour alone;
   `fill: currentColor`). Rules whose subject is a descendant (e.g.
   `.card:hover .label`) are not attributed to the control.
 
+## Privacy
+
+The extension collects no data and makes no network requests — everything runs
+locally. See [PRIVACY.md](PRIVACY.md).
+
 ## License
 
 [MIT](LICENSE) © 2026 Antonio Trifirò
