@@ -5,8 +5,8 @@
 importScripts('page-functions.js');
 
 const CDP_VERSION = '1.3';
-const MAX_ELEMENTS = 500; // safety cap on candidates scanned
-const MAX_TIME_MS = 30000; // safety cap on total scan time
+const MAX_ELEMENTS = 1500; // safety cap on candidates scanned
+const MAX_TIME_MS = 60000; // safety cap on total scan time
 
 // In-memory audit state, surfaced to the popup on demand (survives popup close
 // for the lifetime of the service worker).

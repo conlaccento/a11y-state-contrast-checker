@@ -119,7 +119,7 @@ live announcements; pass/fail is conveyed by text, not colour alone;
 ## Limitations
 
 - Background resolution uses `background-color` layers only (not images/gradients).
-- Large pages are capped (500 elements / 30s) and return partial results.
+- Large pages are capped (1500 elements / 60s) and return partial results.
 - Cross-origin iframes are not scanned.
 - A state is attributed to a control only when that control is the **subject** of
   the pseudo-class selector (e.g. `button:hover`, `.icon-btn:hover` with
