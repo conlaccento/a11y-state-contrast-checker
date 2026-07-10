@@ -43,4 +43,4 @@ The full source code is public and auditable at
 
 ## Contact
 
-Questions about this policy: antonio@blackstudio.it
+Questions about this policy: antonio@conlaccento.it
