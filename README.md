@@ -8,6 +8,8 @@ web page.
 
 <br clear="left" />
 
+![The extension popup showing WCAG state-contrast failures found on a demo page](store/a11y-state-contrast-checker-screenshot.png)
+
 ## Why
 
 axe-core, Lighthouse and WAVE only inspect the DOM in its **resting** state at
