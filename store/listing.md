@@ -96,10 +96,23 @@ English
 
 ## Screenshots (still to capture)
 
-At least one, 1280×800 (or 640×400) PNG/JPEG. Suggested:
-1. The popup after a scan on a real page, showing the results table with a mix
-   of PASS/FAIL rows.
-2. (Optional) The same, with an element highlighted on the page after clicking a
-   row.
-3. (Optional) The test fixture (`test/fixture.html`) audited, showing the four
-   deliberate failures.
+At least one, 1280×800 (or 640×400) PNG/JPEG.
+
+Use the curated demo page `demo/index.html` as the backdrop — a polished mock
+"Account settings" screen that looks fine at rest but hides 5 state-contrast
+failures (2 text, 2 focus-ring, 1 icon), all on clean selectors
+(#password, #forgot, #delete, #save, #cancel).
+
+Suggested shots:
+1. The popup open over the demo page after a scan, showing the results table with
+   failures at the top.
+2. (Optional) The same with an element highlighted on the page after clicking a
+   result row.
+
+Capture tips:
+- Serve the demo over http so the audit runs without enabling file access:
+  `python3 -m http.server 8000` in the repo root, then open
+  `http://localhost:8000/demo/`.
+- To keep the popup from closing while you screenshot: right-click inside the
+  popup → Inspect (the popup stays open while its DevTools is open), then capture
+  the browser window (macOS: Cmd+Shift+4, then Space, click the window).
