@@ -2,7 +2,13 @@
 
 Chrome MV3 extension: on-demand WCAG contrast audit of interactive states
 (`:hover`/`:focus`/`:focus-visible`). Uses `chrome.debugger` (CDP) to force real
-pseudo-classes, then `getComputedStyle` to measure. Not a git repo yet.
+pseudo-classes, then `getComputedStyle` to measure.
+
+## Commands
+- `npm test` — e2e regression: drives headless Chrome via raw CDP against
+  `test/fixture.html` (4 deliberate state-only violations) and asserts them.
+  Needs a local Chrome. Fast way to verify core changes without reloading the extension.
+- `npm run package` — builds the clean Chrome Web Store zip in `dist/` (runtime files only).
 
 ## Gotchas
 - `CSS.getMatchedStylesForNode` does NOT return pseudo-class rules at rest —
@@ -22,8 +28,7 @@ pseudo-classes, then `getComputedStyle` to measure. Not a git repo yet.
 conlaccento green `#41B493` (logo) is too light for text (~2.5:1). UI text/buttons
 use darkened `#1f7a5c`; dark-theme links use `#41B493`; the icon uses the brand gradient.
 
-## Testing without loading the extension
-Drive headless Chrome via raw CDP (Node 22 has a global `WebSocket`, no deps):
-launch Chrome with `--headless=new --remote-debugging-port=PORT`, open
-`test/fixture.html` (has 4 deliberate state-only violations), fetch the ws URL from
-`http://127.0.0.1:PORT/json`, then send CDP commands.
+## Publishing (Chrome Web Store)
+Dashboard copy in `store/listing.md`, privacy policy `PRIVACY.md`, screenshot
+backdrop `demo/index.html`. Package with `npm run package`. Only `debugger` needs
+justifying in review — the extension uses `activeTab`, not `<all_urls>`.
